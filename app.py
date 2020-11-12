@@ -40,12 +40,10 @@ def hello():
         redis.incr('hits')
         return 'Hello World! I have been seen %s times.' % redis.get('hits')
 
-#        r = redis.StrictRedis(host=redis_host, port=redis_port, password=redis_password, decode_responses=True)
+        hats.set("msg:hello", "Hello Redis!!!")
 
- #       r.set("msg:hello", "Hello Redis!!!")
-
-#        msg = r.get("msg:hello")
-#        print(msg)
+        msg = hats.get("msg:hello")
+        print(msg)
 
     except Exception as e:
         print(e)
